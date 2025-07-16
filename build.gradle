@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.tuempresa'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    // JUnit 4 para compatibilidad con cucumber-junit
+    testImplementation 'junit:junit:4.13.2'
+
+    // Selenium
+    implementation 'org.seleniumhq.selenium:selenium-java:4.15.0'
+
+    // WebDriverManager
+    implementation 'io.github.bonigarcia:webdrivermanager:5.6.2'
+
+    // Cucumber
+    implementation 'io.cucumber:cucumber-java:7.14.1'
+    testImplementation 'io.cucumber:cucumber-junit:7.14.1'
+
+    // TestNG (solo si lo estás usando — si no, puedes quitar esta línea)
+    testImplementation 'org.testng:testng:7.8.0'
+
+    testImplementation 'com.aventstack:extentreports:5.1.2'
+    
+}
+
+tasks.named('test') {
+    useJUnit() // Asegura que se use JUnit 4
+
+    // Opcional: permite pasar opciones a Cucumber desde la línea de comandos
+    systemProperty "cucumber.options", System.getProperty("cucumber.options")
+    systemProperties System.getProperties()
+}
