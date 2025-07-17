@@ -1,6 +1,4 @@
-# This is a basic workflow that is manually triggered
-
-name: Manual workflow
+name: Ejecutar pruebas y publicar reporte
 
 on:
   push:
@@ -21,10 +19,13 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Dar permisos a gradlew
+        run: chmod +x gradlew
+
       - name: Ejecutar pruebas
         run: ./gradlew test
 
-      - name: Subir reporte a gh-pages
+      - name: Publicar reporte en GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
