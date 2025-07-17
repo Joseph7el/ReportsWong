@@ -493,11 +493,6 @@ public class MediterraneoCarritoPage extends BasePage{
     public void aceptamosTerminosYFinalizamos(){
         clickElement(declaracionTyC);
         clickElement(finalizarBotonCheckout);
-        try {
-            Thread.sleep(9000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         
     }
     public void ingresamosLosDatosDeLaTarjetaValida(){
@@ -778,6 +773,11 @@ public class MediterraneoCarritoPage extends BasePage{
         }
     }
     public void validacionFinalExitosa(){
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         
         try{
             JavascriptExecutor js = (JavascriptExecutor) driver;

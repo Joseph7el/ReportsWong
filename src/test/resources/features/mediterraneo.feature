@@ -25,7 +25,7 @@
     And selecciona el pedido programado
 
     And selecciona como Facturado con Ruc "20888856671" y "Empresa Testing @ut0m@t&zac¡()N"
-    #And ingresa un cupon "S75PH62IX5"    
+    #And ingresa un cupon "S75PH62IX5"
     And selecciona pago contra entrega efectivo con "300"
     #And selecciona pago con tarjeta de credito o debito
     And ingresa comentarios
@@ -54,13 +54,15 @@
     And selecciona el pedido programado
     And selecciona como Facturado con Ruc "20888856671" y "Empresa Testing @ut0m@t&zac¡()N"
     #And ingresa un cupon "S75PH62IX5"
-    And selecciona pago con tarjeta de credito o debito
+    #1And selecciona pago con tarjeta de credito o debito
+
+    And selecciona pago contra entrega efectivo con "300"
 
     And ingresa comentarios
     And acepta terminos y condiciones y finaliza
     
-    And ingresa los datos de la tarjeta valida
-    And pauser fin
+    #1And ingresa los datos de la tarjeta valida
+    #1And pauser fin
     Then validamos el mensaje final de compra exitosa
 
 #CASO NUMERO 3
@@ -89,7 +91,7 @@
     Then validamos el mensaje final de compra exitosa
 
 #CASO NUMERO 4
-@Ejecutar
+
   Scenario: CASO 4 - Comprar de un producto solo, como cliente ya registrado, programado para hoy, con boleta, con uso de cupon, pago Efectivo, recojo en tienda y dispositivo Desktop
 
     When selecciona de las opciones de perfil la opcion iniciar sesion
@@ -105,7 +107,7 @@
     
     Then validamos el mensaje final de compra exitosa
 
-
+@Ejecutar
 #CASO NUMERO 5
   Scenario: CASO 5 - Comprar de un producto con adicionales, como cliente ya registrado, programado, con facturacion, sin uso de cupon, pago Contraentrega y recojo en una direccion
     
@@ -218,7 +220,8 @@ Scenario: CASO 9 - Comprar de un producto solo, registrando un cliente nuevo, en
     And selecciona pago contra entrega efectivo con "500"
     And acepta terminos y condiciones y finaliza
     
-    And pauser fin
+    #And pauser fin
+    Then validamos el mensaje final de compra exitosa
 
 #CASO NUMERO 10
 
